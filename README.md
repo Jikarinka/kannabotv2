@@ -73,7 +73,7 @@
 ## `SETTING`
 
 - Owner Number [Here](https://github.com/Jikarinka/kannabotv2/blob/4931979eddb7e0522a1af38cf966db8d8fb063de/config.js#L63)
-- Owner Name [Here](https://github.com/Jikarinka/kannabotv2/blob/multi-device/config.js#L1)
+- Owner Name [Here](https://github.com/Jikarinka/kannabotv2/blob/4931979eddb7e0522a1af38cf966db8d8fb063de/config.js#L65)
 - Bot Name [Here](https://github.com/Jikarinka/kannabotv2/blob/multi-device/config.js#L1)
 ---------
 
