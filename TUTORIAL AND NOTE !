@@ -1,0 +1,73 @@
+// S C R I P T  O R I  B Y  @BochilGaming 🔭
+// M A D E  B Y  Letta - Sama 🐰  
+// Credits, jangan dihapus atau diubah!
+
+// - - THANKS TO - -
+// • Allah SWT
+// • Nurutomo
+// • Bochilgaming
+// • Rominaru
+// • Kannachann
+// • The.Sad.Boy01
+// • Rasel comel
+// • Xtreshe (Beban)
+// • Dll
+//-----------------------------------------
+
+
+
+
+//--------------- [ NOTE ] ---------------
+// ❗ OWNER MALES UPDATE KALAU FORKNYA LEBIH BANYAK DARIPADA STAR !
+
+// > NOTE: 
+// • HARAP TIDAK MENJUAL / MEMPERBELIKAN SCRIPT INI !
+// • KALAU ADA MASALAH SAAT MENGEDIT / TIDAK MENGERTI, TANYAKAN PADA OWNER
+// • KASIH STAR SAMA FOLLOW GITHUB KU YA
+// • NO REUPLOAD SCRIPT INI !
+// • DILARANG MENGHAPUS / MENGUBAH CREDITS SEPERTI info-tqto.js DAN info-tqto.js !
+// • NO PLAGIAT OR COPYCAT NAME BOT OFFICIAL & GROUP OFFICIAL BOT !
+
+
+// <?> ATUR NOMOR OWNER DIMANA?
+// Semua ada di Config.js ||   Disana atur Thumbnail, wm, nomor owner, hiasan...
+
+// <?> UBAH BIO OWNER DIMANA KAK?
+// Di plugins/creator.js
+
+
+//---------------- [ TUTORIAL? ] -------------
+
+// ••••• <?> CARA NGUBAH TAMPILAN MENU BUTTON TEMPLATE KE BUTTON DOC GIMANA KAK?
+//     • tampilan sebelumnya kasih tanda /* didepan conn. dan di akhir quoted / options kasih tanda.  */
+
+
+// EXAMPLE:
+//               > BEFORE:
+//  [] Yang kalian pakai sekarang :
+//                              conn.sendButton(m.chat, text, botdate, thumb, [['OWNER', '.owner'],['DONASI','.donasi']], m)
+
+//  [] Yang kalian ingin pakai :
+                              //await conn.sendMessage(m.chat, message, m, { mentionedJid: [m.sender] })    
+        
+//                > AFTER:
+//  [] Yang kalian pakai sekarang:
+//                           /*conn.sendButton(m.chat, text, botdate, thumb, [['OWNER', '.owner'],['DONASI','.donasi']], m)*/
+
+//  [] Yang ingin kalian pakai:
+//                           await conn.sendMessage(m.chat, message, m, { mentionedJid: [m.sender] })    
+
+
+// ••••• <?> CARA NGEDIT PREM-NSFW.JS GIMANA KAK?
+// Ga perlu diedit, tinggal ganti apikey lolhuman & Xteam disitu ok !
+
+
+// ••••• <?> CARA PAKAI IMPORT MODULE GIMANA KAK?
+// Caranya hampir sama kayak require
+
+//     [] EXAMPLE:
+//  import <nama, seterah> from '<nama modulenya>'
+
+//  >>    import fs from 'fs'
+//  >>    import { join } from path
+//  >>    let { join } = (await import('path'))
