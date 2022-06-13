@@ -32,7 +32,7 @@
   <a href="https://www.instagram.com/kontol_elite/">
     <img align="left" alt="SIEGRIN | Instagram" width="24px" src="https://github.com/siegrin/siegrin/blob/main/Assets/Instagram.svg" />
   </a> &nbsp;&nbsp;
-  <a href="mailto:kannachann@gmail.com">
+  <a href="mailto: papamamaakupulang@gmail.com">
     <img align="left" alt="SIEGRIN | Gmail" width="26px" src="https://github.com/siegrin/siegrin/blob/main/Assets/Gmail.svg" />
   </a> &nbsp;&nbsp;
 ---------
@@ -72,9 +72,9 @@
 
 ## `SETTING`
 
-- Owner Number [Here](https://github.com/Jikarinka/kannabot-md/blob/multi-device/config.js#L1)
-- Owner Name [Here](https://github.com/Jikarinka/kannabot-md/blob/multi-device/config.js#L1)
-- Bot Name [Here](https://github.com/Jikarinka/kannabot-md/blob/multi-device/config.js#L1)
+- Owner Number [Here](https://github.com/Jikarinka/kannabotv2/blob/multi-device/config.js#L1)
+- Owner Name [Here](https://github.com/Jikarinka/kannabotv2/blob/multi-device/config.js#L1)
+- Bot Name [Here](https://github.com/Jikarinka/kannabotv2/blob/multi-device/config.js#L1)
 ---------
 
 ## ```Heroku Buildpack```
