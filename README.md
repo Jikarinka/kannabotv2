@@ -12,15 +12,14 @@
 <p align="center">
 <a href="https://github.com/Jikarinka"><img title="Author" src="https://img.shields.io/badge/AUTHOR-Kanna-blue.svg?style=for-the-badge&logo=github"></a>
 </p>
-<a href="https://github.com/Jikarinka/KannaBOT-MD/network/members"><img title="Forks" src="https://img.shields.io/github/forks/kannachann/KannaBOT-MD?label=Forks&color=blue&style=flat-square"></a>
-<a href="https://github.com/Jikarinka/KannaBOT-MD/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/kannachann/KannaBOT-MD?label=Watchers&color=green&style=flat-square"></a>
-<a href="https://github.com/Jikarinka/KannaBOT-MD/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/kannachann/KannaBOT-MD?label=Stars&color=yellow&style=flat-square"></a>
-<a href="https://github.com/Jikarinka/KannaBOT-MD/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/kannachann/KannaBOT-MD?label=Contributors&color=blue&style=flat-square"></a>
-<a href="https://github.com/Jikarinka/KannaBOT-MD/issues"><img title="Issues" src="https://img.shields.io/github/issues/kannachann/KannaBOT-MD?label=Issues&color=success&style=flat-square"></a>
-<a href="https://github.com/Jikarinka/KannaBOT-MD/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/kannachann/KannaBOT-MD?label=Issues&color=red&style=flat-square"></a>
-<a href="https://github.com/Jikarinka/KannaBOT-MD/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/kannachann/KannaBOT-MD?label=PullRequest&color=success&style=flat-square"></a>
-<a href="https://github.com/Jikarinka/KannaBOT-MD/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/kannachann/KannaBOT-MD?label=PullRequest&color=red&style=flat-square"></a>
-
+<a href="https://github.com/Jikarinka/kannabotv2 /network/members"><img title="Forks" src="https://img.shields.io/github/forks/Jikarinka /kannabotv2 ?label=Forks&color=blue&style=flat-square"></a>
+<a href="https://github.com/Jikarinka/kannabotv2 /watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/Jikarinka /kannabotv2 ?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/Jikarinka/kannabotv2 /stargazers"><img title="Stars" src="https://img.shields.io/github/stars/Jikarinka /kannabotv2 ?label=Stars&color=yellow&style=flat-square"></a>
+<a href="https://github.com/Jikarinka/kannabotv2 /graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/Jikarinka /kannabotv2 ?label=Contributors&color=blue&style=flat-square"></a>
+<a href="https://github.com/Jikarinka/kannabotv2 /issues"><img title="Issues" src="https://img.shields.io/github/issues/Jikarinka /kannabotv2 ?label=Issues&color=success&style=flat-square"></a>
+<a href="https://github.com/Jikarinka/kannabotv2 /issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/Jikarinka /kannabotv2 ?label=Issues&color=red&style=flat-square"></a>
+<a href="https://github.com/Jikarinka/kannabotv2 /pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/Jikarinka /kannabotv2 ?label=PullRequest&color=success&style=flat-square"></a>
+<a href="https://github.com/Jikarinka/kannabotv2 /pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/Jikarinka /kannabotv2 ?label=PullRequest&color=red&style=flat-square"></a>
 ---------
 ## ```Connect With Me 📞``` <img src="https://github.com/siegrin/siegrin/blob/main/Assets/Handshake.gif" height="32px">
   <a href="https://wa.me/6285334930628">
@@ -92,11 +91,11 @@ $ pkg install git -y
 $ pkg install nodejs -y
 $ pkg install ffmpeg -y
 $ pkg install imagemagick -y
-$ git clone https://github.com/Jikarinka/KannaBOT-MD/
-$ cd KannaBOT-MD
+$ git clone https://github.com/Jikarinka/Kannabotv2/
+$ cd Kannabotv2
 $ npm i 
 ```
-If error try using yarn instead of npm, see [here](https://github.com/Jikarinka/KannaBOT-MD#if-npm-install-failed--try--using-yarn-instead-of-npm)
+If error try using yarn instead of npm, see [here](https://github.com/Jikarinka/Kannabotv2#if-npm-install-failed--try--using-yarn-instead-of-npm)
 ```bash
 $ node .
 ```
@@ -135,8 +134,8 @@ apt install wget curl git ffmpeg imagemagick build-essential libcairo2-dev libpa
 ubuntu
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 apt install -y nodejs gcc g++ make
-git clone https://github.com/Jikarinka/kannaBOT-V2/
-cd kannaBOT-V2
+git clone https://github.com/Jikarinka/kannabotv2/
+cd Kannabotv2
 npm install
 npm update
 ```
@@ -151,8 +150,8 @@ npm update
 * Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/Jikarinka/kannaBOT-V2/
-cd kannaBOT-V2
+git clone https://github.com/Jikarinka/kannabotv2/
+cd Kannabotv2
 npm install
 npm update
 ```
