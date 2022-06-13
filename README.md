@@ -38,9 +38,9 @@
 ---------
 
 ## ```Whatsapp``` <a href="https://wa.me/6285334930628"> <img align="left" alt="SIEGRIN | Whastapp" width="26px" src="https://github.com/siegrin/siegrin/blob/main/Assets/Whatsapp.svg" />
-[![BOT WHATSAPP](https://img.shields.io/badge/WhatsApp%20BOT-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/6283143393763) 
-[![ONWER](https://img.shields.io/badge/Owner%20BOT-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/62831433937633) 
-[![GROUP OFFICIAL](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/Hjr3H7l9iC8F2deP0cv6GT) 
+[![BOT WHATSAPP](https://img.shields.io/badge/WhatsApp%20BOT-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/6281336990781) 
+[![ONWER](https://img.shields.io/badge/Owner%20BOT-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/6285334930628) 
+[![GROUP OFFICIAL](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/FF1Bd1U0FHu42rfz6uplbn) 
 ---------
 
 #### KELEBIHAN 📍
@@ -74,7 +74,7 @@
 
 - Owner Number [Here](https://github.com/Jikarinka/kannabotv2/blob/4931979eddb7e0522a1af38cf966db8d8fb063de/config.js#L63)
 - Owner Name [Here](https://github.com/Jikarinka/kannabotv2/blob/4931979eddb7e0522a1af38cf966db8d8fb063de/config.js#L65)
-- Bot Name [Here](https://github.com/Jikarinka/kannabotv2/blob/multi-device/config.js#L1)
+- Bot Name [Here](https://github.com/Jikarinka/kannabotv2/blob/4931979eddb7e0522a1af38cf966db8d8fb063de/config.js#L64)
 ---------
 
 ## ```Heroku Buildpack```
