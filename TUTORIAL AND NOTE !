@@ -38,6 +38,11 @@
 
 //---------------- [ TUTORIAL? ] -------------
 
+
+// ••••• <?> NAMA SESSIONYA APA KAK?
+
+//  > UNTUK NAMA SESSIONNYA DIHARUSKAN MENGGUNAKAN [ kannabot.data.json ]
+
 // ••••• <?> CARA NGUBAH TAMPILAN MENU BUTTON TEMPLATE KE BUTTON DOC GIMANA KAK?
 //     • tampilan sebelumnya kasih tanda /* didepan conn. dan di akhir quoted / options kasih tanda.  */
 
