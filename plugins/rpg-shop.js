@@ -50,6 +50,9 @@ const items = {
         diamond: {
             money: 9000
         },
+        legendary: {
+            money: 10000
+        },
         emerald: {
             money: 15000
         }

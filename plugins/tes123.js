@@ -5,7 +5,7 @@ let info = `Nani? (・o・)`
 
 let td = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 /*const message = {
-            document: { url: thumb },
+            document: { url:thumb },
             jpegThumbnail: await (await fetch(thumb)).buffer(), fileName: global.wm, mimetype: td, fileLength: '9999999', pageCount: '999',
             caption: info,
             footer: wm,
@@ -43,7 +43,7 @@ let td = 'application/vnd.openxmlformats-officedocument.wordprocessingml.documen
             ]
         }
         return await conn.sendMessage(m.chat, message)*/
-conn.reply(m.chat, info, m, { contextInfo: { externalAdReply: {title: global.wm, body: 'Yaw? ada apa kak?', sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')  }}})
+conn.reply(m.chat, info, m, { contextInfo: { externalAdReply: {title: global.wm, body: 'Yaw? ada apa kak?', sourceUrl: sgc, thumbnail: fs.readFileSync('./thumbnail.jpg')  }}})
 }
 handler.customPrefix = /^(tes|tess|test)$/i
 handler.command = new RegExp

@@ -17,7 +17,7 @@ contextInfo: { externalAdReply :{
                         title: bottime,
                         body: wm2,          previewType: 0,
                         thumbnail: fs.readFileSync("./thumbnail.jpg"),
-                        sourceUrl: snh
+                        sourceUrl: sgc
                       }}
 })
 }

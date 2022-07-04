@@ -10,6 +10,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 	{title: "🔞 | Nsfw", rowId: `${usedPrefix + command} nsfw`},
 	{title: "🌟 | PremNsfwChat", rowId: `${usedPrefix + command} premnsfwchat`},
 	{title: "🔗 | Antilink", rowId: `${usedPrefix + command} antilink`},
+    {title: "👁️ | Antiviewonce", rowId: `${usedPrefix + command} antiviewonce`},
+    {title: "🚧 | Antisticker", rowId: `${usedPrefix + command} sticker`},
 	{title: "🚫 | Antidelete", rowId: `${usedPrefix + command} antidelete`},
 	{title: "📛 | Antitoxic", rowId: `${usedPrefix + command} antitoxic`},
 	{title: "⏏️ | Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
@@ -112,6 +114,22 @@ const listMessage = {
       }
       chat.antiLink = isEnable
       break
+    case 'sticker':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.sticker = isEnable
+      break
+    case 'antiviewonce':
+      if (!isAdmin) {
+        global.dfail('admin', m, conn)
+        throw false
+        }
+       chat.viewonce = isEnable
+       break
       case 'simi':
         if (!isROwner) {
           global.dfail('rowner', m, conn)
@@ -135,24 +153,24 @@ const listMessage = {
         }}
       chat.premnsfw = isEnable
       break
-    // case 'toxic':
-    //   if (m.isGroup) {
-    //     if (!(isAdmin || isOwner)) {
-    //       global.dfail('admin', m, conn)
-    //       throw false
-    //     }
-    //   }
-    //   chat.antiToxic = !isEnable
-    //   break
-    // case 'antitoxic':
-    //   if (m.isGroup) {
-    //     if (!(isAdmin || isOwner)) {
-    //       global.dfail('admin', m, conn)
-    //       throw false
-    //     }
-    //   }
-    //   chat.antiToxic = isEnable
-    //   break
+     //case 'toxic':
+     //  if (m.isGroup) {
+     //    if (!(isAdmin || isOwner)) {
+     //      global.dfail('admin', m, conn)
+     //      throw false
+     //    }
+     //  }
+     //  chat.antiToxic = !isEnable
+     //  break
+     case 'antitoxic':
+       if (m.isGroup) {
+         if (!(isAdmin || isOwner)) {
+           global.dfail('admin', m, conn)
+           throw false
+         }
+       }
+       chat.antiToxic = isEnable
+       break
     // case 'autolevelup':
     //   isUser = true
     //   user.autolevelup = isEnable

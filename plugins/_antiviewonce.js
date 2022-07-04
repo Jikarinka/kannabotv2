@@ -1,4 +1,4 @@
-const { downloadContentFromMessage } = require('@adiwajshing/baileys')
+const { downloadContentFromMessage } = (await import('@adiwajshing/baileys')).default
 let handler = m => m
 
 handler.before = async function (m) {
@@ -21,4 +21,4 @@ handler.before = async function (m) {
     }
 }
 
-module.exports = handler
+export default handler
