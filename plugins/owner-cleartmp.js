@@ -22,7 +22,7 @@ const tmp = [tmpdir(), join(__dirname, '../tmp')]
 }
 handler.help = ['cleartmp']
 handler.tags = ['owner']
-handler.command = /^(cleartmp)$/i
+handler.command = /^(ct|cleartmp)$/i
 
 handler.rowner = true
 
