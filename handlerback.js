@@ -97,7 +97,40 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.string))
                     user.string = 0
                 if (!isNumber(user.petFood))
-                    user.petFood = 0    
+                    user.petFood = 0
+/*kingdom                
+                if (!isNumber(user.fortress))
+                    user.fortress = 0
+                if (!isNumber(user.pertanian))
+                    user.pertanian = 0
+                if (!isNumber(user.camptroops))
+                    user.camptroops = 0
+                if (!isNumber(user.tambang))
+                    user.tambang = 0
+                if (!isNumber(user.rumahsakit))
+                    user.rumahsakit = 0
+                if (!isNumber(user.population))
+                    user.population = 0
+                if (!isNumber(user.troops))
+                    user.troops = 0
+                if (!isNumber(user.lvl))
+                    user.lvl = 0
+                if (!isNumber(user.koin))
+                    user.koin = 0
+                if (!isNumber(user.aliance))
+                    user.aliance = 0
+                if (!('created' in user))
+                    user.created = false
+                if (!isNumber(user.kingdomName))
+                    user.kingdomName = ''
+                if (!isNumber(user.namk))
+                    user.namk = ''
+                if (!isNumber(user.))
+                    user. = 0
+                if (!isNumber(user.))
+                    user. = 0
+                if (!isNumber(user.))
+                    user. = 0*/
 
                 if (!isNumber(user.emerald))
                     user.emerald = 0
@@ -234,6 +267,20 @@ export async function handler(chatUpdate) {
                     wood: 0,
                     rock: 0,
                     string: 0,
+/*kingdom                    
+                    namk: '',
+                    kingdomName: '',
+                    fortress: 0,
+                    pertanian: 0,
+                    camptroops: 0,
+                    tambang: 0,
+                    rumahsakit: 0,
+                    created: false,                   
+                    troops: 0,
+                    population: 0,
+                    lvl: 0,
+                    aliance,
+                    koin: 0,*/
 
                     emerald: 0,
                     diamond: 0,
