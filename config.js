@@ -45,7 +45,7 @@ let wibh = moment.tz('Asia/Jakarta').format('HH')
 
 // kalo ga punya ketik "-" atau biarin aja biar ada creditsnya :v
 global.sig = 'https://www.instagram.com/kontol_elite'
-global.sgh = 'https://github.com/kannachann'
+global.sgh = 'https://github.com/Jikarinka'
 global.sgc = 'https://chat.whatsapp.com/FF1Bd1U0FHu42rfz6uplbn'
 global.sdc = '-'
 global.snh = 'https://nhentai.net/g/365296/'
@@ -62,7 +62,7 @@ global.psaweria = '-'
 global.nomorbot = '6281336990781'
 global.nomorown = '6285334930628'
 global.namebot = 'Kanna BOT'
-global.nameown = 'ⓊⒸⒽⒾⒽⒶ ⓃⒶⓇⓊⓉⓄ'
+global.nameown = 'ᴠᴀɴᴇꜱꜱᴀ-ᴅᴇꜱᴜ'
 
 
 /*============== STAFF ==============*/
@@ -70,7 +70,7 @@ global.owner = [
   ['6285334930628'],
   ['6285334930628'],
   ['18126338970'],
-  ['6285334930628', 'ⓊⒸⒽⒾⒽⒶ ⓃⒶⓇⓊⓉⓄ', true]
+  ['6285334930628', 'ᴠᴀɴᴇꜱꜱᴀ-ᴅᴇꜱᴜ', true]
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
 global.mods = [] // Want some help?
