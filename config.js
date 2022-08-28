@@ -149,30 +149,30 @@ global.fpagedoc = '999'
 
 /*=========== HIASAN ===========*/
 // DEFAULT MENU
-global.dmenut = '❏═┅═━–〈' //top
-global.dmenub = '┊•' //body
+global.dmenut = '❏〈' //top
+global.dmenub = 'ー•' //body
 global.dmenub2 = '┊' //body for info cmd on Default menu
-global.dmenuf = '┗––––––––––✦' //footer
+global.dmenuf = '┗' //footer
 
 // COMMAND MENU
 global.dashmenu = '┅━━━━━═┅═❏ *ᴅᴀꜱʜʙᴏᴀʀᴅ* ❏═┅═━━━━━┅'
-global.cmenut = '❏––––––『'                       //top
-global.cmenuh = '』––––––'                        //header
-global.cmenub = '┊✦ '                            //body
-global.cmenuf = '┗━═┅═━––––––๑\n'                //footer
-global.cmenua = '\n⌕ ❙❘❙❙❘❙❚❙❘❙❙❚❙❘❙❘❙❚❙❘❙❙❚❙❘❙❙❘❙❚❙❘ ⌕\n     ' //after
-global.pmenus = '┊'                              //pembatas menu selector
+global.cmenut = '❏『'                       //top
+global.cmenuh = '』'                        //header
+global.cmenub = ' '                            //body
+global.cmenuf = '\n'                //footer
+global.cmenua = '\n滝なーBOT MD\n     ' //after
+global.pmenus = 'ー'                              //pembatas menu selector
 
-global.htki = '––––––『' // Hiasan Titile (KIRI)
-global.htka = '』––––––' // Hiasan Title  (KANAN)
+global.htki = 'ーーーー『' // Hiasan Titile (KIRI)
+global.htka = '』ーーーー' // Hiasan Title  (KANAN)
 global.lopr = 'P'//LOGO PREMIUM ON MENU.JS
 global.lolm = 'F' //LOGO FREE ON MENU.JS
 global.htjava = '⫹⫺'    //hiasan Doang :v
 global.hsquere = ['⛶','❏','⫹⫺']
 
 /*============== STICKER WM ==============*/
-global.stickpack = 'ヂマスーサトリアータマ'
-global.stickauth = `😅☝️\nた\nき\nな\nWhatsapp BOT\nwa.me/${global.nomorbot}`
+global.stickpack = '.'
+global.stickauth = `☂︎\n𝗞\na\nn\nn\na\n-\n𝗕\n𝗢\n𝗧\n✦\n\n⫹⫺ Whatsapp BOT\nwa.me/${global.nomorbot}`
 
 global.multiplier = 38 // The higher, The harder levelup
 
@@ -227,4 +227,3 @@ watchFile(file, () => {
   console.log(chalk.redBright("Update 'config.js'"))
   import(`${file}?update=${Date.now()}`)
 })
-
