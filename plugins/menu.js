@@ -9,6 +9,30 @@ import os from 'os'
 import fs from 'fs'
 import fetch from 'node-fetch'
 
+let ftoko = {
+    key: {
+    fromMe: false,
+    participant: `${m.sender.split`@`[0]}` + '@s.whatsapp.net',
+    remoteJid: 'status@broadcast',
+  },
+  message: {
+  "productMessage": {
+  "product": {
+  "productImage":{
+  "mimetype": "image/jpeg",
+  "jpegThumbnail": fs.readFileSync('./thumbnail.jpg'),
+    },
+  "title": `${ucapan()}`,
+  "description": '𝗧 𝗜 𝗠 𝗘 : ' + wktuwib,
+  "currencyCode": "US",
+  "priceAmount1000": "100",
+  "retailerId": wm,
+  "productImageCount": 999
+        },
+  "businessOwnerJid": `${m.sender.split`@`[0]}@s.whatsapp.net`
+  }
+  }
+  }
 const defaultMenu = {
   before: `
 %dash
@@ -420,30 +444,7 @@ const listMessage = {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     
     //----------------- FAKE
-    let ftoko = {
-    key: {
-    fromMe: false,
-    participant: `${m.sender.split`@`[0]}` + '@s.whatsapp.net',
-    remoteJid: 'status@broadcast',
-  },
-  message: {
-  "productMessage": {
-  "product": {
-  "productImage":{
-  "mimetype": "image/jpeg",
-  "jpegThumbnail": fs.readFileSync('./thumbnail.jpg'),
-    },
-  "title": `${ucapan()}`,
-  "description": '𝗧 𝗜 𝗠 𝗘 : ' + wktuwib,
-  "currencyCode": "US",
-  "priceAmount1000": "100",
-  "retailerId": wm,
-  "productImageCount": 999
-        },
-  "businessOwnerJid": `${m.sender.split`@`[0]}@s.whatsapp.net`
-  }
-  }
-  }
+    
   let fgif = {
     key: {
     remoteJid: 'status@broadcast',
