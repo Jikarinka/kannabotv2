@@ -25,7 +25,6 @@ let wibh = moment.tz('Asia/Jakarta').format('HH')
     let wibm = moment.tz('Asia/Jakarta').format('mm')
     let wibs = moment.tz('Asia/Jakarta').format('ss')
     let wktuwib = `${wibh} H ${wibm} M ${wibs} S`
-    let wktuwib = `${wibh} H ${wibm} M ${wibs} S`
    function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
   let res = "Selamat DiniHari ☀️"
