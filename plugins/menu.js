@@ -297,9 +297,9 @@ const listMessage = {
   buttonText: `CLICK HERE ⎙`,
   sections
 }
-  if (teks == '404') {
-  	return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(tek), contextInfo:{ forwardingScore: 99999, isForwarded: true }})
-    }
+    if (teks == '404') {
+  	return conn.sendMessage(m.chat, listMessage, { quoted: ingfo, mentions: await conn.parseMention(tek), contextInfo  { externalAdReply: { title: `${htjava} ${namebot}`, body: titlebot, description: titlebot, mediaType: 2, thumbnail: await(await fetch(thumb2)).buffer(), mediaUrl: sig,}}})
+  	}
   	
  /**************************** TIME *********************/
  let wib = moment.tz('Asia/Jakarta').format('HH:mm:ss')
