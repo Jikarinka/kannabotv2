@@ -201,7 +201,6 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
       let c4 = global.cmenua
       
       // LOGO L P
-      let fting = global.ingfo
       let lprem = global.lopr
       let llim = global.lolm
       let tag = `@${m.sender.split('@')[0]}`
@@ -299,7 +298,7 @@ const listMessage = {
   sections
 }
     if (teks == '404') {
-  	return conn.sendMessage(m.chat, listMessage, { quoted: fting, mentions: await conn.parseMention(tek), contextInfo:{ forwardingScore: 99999, isForwarded: true }})
+  	return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(tek), contextInfo:{ forwardingScore: 99999, isForwarded: true }})
     }
   	
  /**************************** TIME *********************/
