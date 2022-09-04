@@ -25,7 +25,25 @@ let wibh = moment.tz('Asia/Jakarta').format('HH')
     let wibm = moment.tz('Asia/Jakarta').format('mm')
     let wibs = moment.tz('Asia/Jakarta').format('ss')
     let wktuwib = `${wibh} H ${wibm} M ${wibs} S`
-    
+    let wktuwib = `${wibh} H ${wibm} M ${wibs} S`
+   function ucapan() {
+  const time = moment.tz('Asia/Jakarta').format('HH')
+  let res = "Selamat DiniHari ☀️"
+  if (time >= 4) {
+    res = "Good Morning 🌄"
+  }
+  if (time >= 10) {
+    res = "Good Afternoon ☀️"
+  }
+  if (time >= 15) {
+    res = "Good Afternoon 🌇"
+  }
+  if (time >= 18) {
+    res = "Good Night 🌙"
+  }
+  return res
+}
+
     let d = new Date(new Date + 3600000)
     let locale = 'id'
     // d.getTimeZoneOffset()
@@ -176,6 +194,32 @@ global.stickauth = `😅☝️\n⫹⫺ Whatsapp BOT\nwa.me/${global.nomorbot}`
 
 global.multiplier = 38 // The higher, The harder levelup
 
+/*============pake kuotod===========*/
+ global.ingfo = {
+    key: {
+    fromMe: false,
+    participant: `${m.sender.split`@`[0]}` + '@s.whatsapp.net',
+    remoteJid: 'status@broadcast',
+  },
+  message: {
+  "productMessage": {
+  "product": {
+  "productImage":{
+  "mimetype": "image/jpeg",
+  "jpegThumbnail": fs.readFileSync('./thumbnail.jpeg'),
+    },
+  "title": `${ucapan()}`,
+  "description": '𝗧 𝗜 𝗠 𝗘 : ' + wktuwib,
+  "currencyCode": "US",
+  "priceAmount1000": "100",
+  "retailerId": wm,
+  "productImageCount": 999
+        },
+  "businessOwnerJid": `${m.sender.split`@`[0]}@s.whatsapp.net`
+  }
+  }
+  }
+    
 /*============== EMOJI ==============*/
 global.rpg = {
   emoticon(string) {
