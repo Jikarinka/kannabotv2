@@ -15,6 +15,7 @@ if (/fast/.test(command)) set = '-filter:a "atempo=1.63,asetrate=44100"'
 if (/fat/.test(command)) set = '-filter:a "atempo=1.6,asetrate=22100"'
 if (/nightcore/.test(command)) set = '-filter:a atempo=1.06,asetrate=44100*1.25'
 if (/reverse/.test(command)) set = '-filter_complex "areverse"'
+if (/reverb/.test(command)) set = ' -filter_complex "[0]apad=pad_len=44100*2[2];[2] [1]afir=length=1:irfmt=mono:dry=10:wet=10[3]; [3]atrim=start_sample=44100*2"'
 if (/robot/.test(command)) set = '-filter_complex "afftfilt=real=\'hypot(re,im)*sin(0)\':imag=\'hypot(re,im)*cos(0)\':win_size=512:overlap=0.75"'
 if (/slow/.test(command)) set = '-filter:a "atempo=0.7,asetrate=44100"'
 if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"'
@@ -28,16 +29,16 @@ await unlinkSync(media)
 if (err) throw `_*Error!*_`
 let buff = await readFileSync(filename)
 conn.sendFile(m.chat, buff, ran, null, m, true, {
-type: 'audioMessage', 
-ptt: true 
+type: 'audioMessage',
+ptt: true
 })})
 } else throw `*ʀᴇꜱᴘᴏɴᴅ ᴛᴏ ᴛʜᴇ ᴀᴜᴅɪᴏ ᴏʀ ᴠᴏɪᴄᴇ ɴᴏᴛᴇ ᴡʜɪᴄʜ ᴡɪʟʟ ʙᴇ ᴍᴏᴅɪꜰɪᴇᴅ, ᴜꜱᴇ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ ${usedPrefix + command}*`
 } catch (e) {
 throw e
 }}
-handler.help = ['bass', 'blown', 'deep', 'earrape', 'fast', 'fat', 'nightcore', 'reverse', 'robot', 'slow', 'smooth', 'tupai'].map(v => v + ' [vn]')
+handler.help = ['bass', 'blown', 'deep', 'earrape', 'fast', 'fat', 'nightcore', 'reverse', 'reverb', 'robot', 'slow', 'smooth', 'tupai'].map(v => v + ' [vn]')
 handler.tags = ['audio']
-handler.command = /^(bass|blown|deep|earrape|fas?t|nightcore|reverse|robot|slow|smooth|tupai|squirrel|chipmunk)$/i
+handler.command = /^(bass|blown|deep|earrape|fas?t|nightcore|reverse|reverb|robot|slow|smooth|tupai|squirrel|chipmunk)$/i
 export default handler
 
 const getRandom = (ext) => {
