@@ -20,18 +20,18 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
 //------------ BIO
 let ppown = await conn.profilePictureUrl(nomorown + '@s.whatsapp.net', 'image').catch(_ => hwaifu[1]) 
 let teksbio = `${htki} *BIODATA* ${htka}
-*ɴᴀᴍᴇ:* ⓊⒸⒽⒾⒽⒶ ⓃⒶⓇⓊⓉⓄ
-*ᴀɢᴇ:* 20ᵗʰ
-*sᴛᴀᴛᴜs:* single 
+*ɴᴀᴍᴇ:* ヂマス-サトリア-タマ
+*ᴀɢᴇ:* 15ᵗʰ
+*sᴛᴀᴛᴜs:* status wangsaf
 
-*ʙɪʀᴛʜᴅᴀʏ:* 21 Des 2002
-*ᴀᴅᴅʀᴇss:* Indonesia, Jawa Barat, Bandung
+*ʙɪʀᴛʜᴅᴀʏ:* 16 Oct 2007
+*ᴀᴅᴅʀᴇss:* Indonesia, Lampung, Pringsewu
 
 *- - sᴋɪʟʟs: - -* 
-> JavaScript [89.7%]
+> JavaScript [20.7%]
 > Python [13.4%]
-> CSS [5.1%]
-> Html [1.2%]
+> CSS [10.1%]
+> Html [60.5%]
 
 📷 *Instagram:* ${sig}
 🐈 *Github:* ${sgh}
