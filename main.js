@@ -34,7 +34,6 @@ const {
   DisconnectReason
 } = await import('@adiwajshing/baileys')
 
-const { state, saveState } = useSingleFileAuthState(`./kannabot.data.json`)
 const { CONNECTING } = ws
 const { chain } = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
@@ -82,15 +81,13 @@ global.loadDatabase = async function loadDatabase() {
     settings: {},
     ...(global.db.data || {})
   }
-global.db.chain = _.chain(global.db.data)
+  global.db.chain = chain(global.db.data)
 }
 loadDatabase()
 
-// save database every 30seconds
-if (global.db) setInterval(async () => {
-    if (global.db.data) await global.db.write()
-  }, 30 * 1000)
-
+global.authFile = `${opts._[0] || 'kannabot'}.data.json`
+console.log(`Load AuthFile from ${authFile}`)
+const { state, saveState } = useSingleFileAuthState(global.authFile)
 
 const connectionOptions = {
   printQRInTerminal: true,
@@ -100,6 +97,17 @@ const connectionOptions = {
 
 global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
+
+if (!opts['test']) {
+  setInterval(async () => {
+    if (global.db.data) await global.db.write().catch(console.error)
+    if (opts['autocleartmp']) try {
+      clearTmp()
+
+    } catch (e) { console.error(e) }
+  }, 60 * 1000)
+}
+if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
 
 function clearTmp() {
