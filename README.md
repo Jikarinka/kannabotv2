@@ -244,9 +244,10 @@ conn.sendButton(m.chat, 'Hello world!', '@BochilGaming', 'https://github.com/Boc
 * [`Fokusdotid`](https://github.com/Fokusdotid)
 
 ## ```Recode By 🐾```
-[![Jikarinka](https://github.com/Jikarinka.png?size=100)](http://github.com/kannachann)
+[![Jikarinka](https://github.com/Jikarinka.png?size=100)](http://github.com/Jikarinka)
 
 # ```Contributor 🔭```
+* [`Fokusdotid`](https://github.com/Fokusdotid)
 * [`The.Sad.Boy01`](https://github.com/Kangsad01)
 * [`AmirulDev20`](https://github.com/amiruldev20)
 * [`Rasel Comel`](https://github.com/raselcomel)
