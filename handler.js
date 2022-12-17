@@ -50,15 +50,15 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.lastclaim))
                     user.lastclaim = 0
                 if (!isNumber(user.pasangan))
-                    user.pasangan = ''
+                    user.pasangan = ""
                 if (!('registered' in user))
                     user.registered = false
                 if (!user.registered) {
-                    if (!('name' in user))
+                if (!('name' in user))
                         user.name = m.name
-                    if (!isNumber(user.age))
+                if (!isNumber(user.age))
                         user.age = -1
-                    if (!isNumber(user.regTime))
+                if (!isNumber(user.regTime))
                         user.regTime = -1
                 }
                 if (!isNumber(user.afk))
@@ -97,7 +97,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.string))
                     user.string = 0
                 if (!isNumber(user.petFood))
-                    user.petFood = 0    
+                    user.petFood = 0
 
                 if (!isNumber(user.emerald))
                     user.emerald = 0
@@ -213,7 +213,7 @@ export async function handler(chatUpdate) {
                     lastbunuhi: 0,
                     registered: false,
                     name: m.name,
-                    pasangan: '',
+                    pasangan: "",
                     age: -1,
                     regTime: -1,
                     afk: -1,
@@ -309,6 +309,10 @@ export async function handler(chatUpdate) {
                     chat.delete = true
                 if (!('antiLink' in chat))
                     chat.antiLink = false
+                if (!('antiVirtex' in chat))
+                    chat.antiVirtex = false
+                if (!('jam' in chat))
+                    chat.jam = false
                 if (!('sticker' in chat))
                     chat.sticker = false
                 if (!('viewonce' in chat))
@@ -350,12 +354,14 @@ export async function handler(chatUpdate) {
                 if (!('restrict' in settings)) settings.restrict = true
                 if (!('autorestart' in settings)) settings.autorestart = true
                 if (!('restartDB' in settings)) settings.restartDB = 0
+                if (!'chatAi' in settings) settings.chatAi = false
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
                 autoread: true,
                 restrict: true,
                 autorestart: true,
-                restartDB: 0
+                restartDB: 0,
+                chatAi: false
             }
         } catch (e) {
             console.error(e)
