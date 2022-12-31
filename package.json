@@ -39,7 +39,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "github:Jikarinka/baileys",
+        "@adiwajshing/baileys": "github:Jikarinka/Baileys",
         "@bochilteam/scraper": "^2.0.0",
         "@vitalets/google-translate-api": "^9.0.0",
         "awesome-phonenumber": "^2.68.0",
