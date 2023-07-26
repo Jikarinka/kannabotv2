@@ -1,4 +1,4 @@
-let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
+/*let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
 	const sections = [
    {
 	title: `${dmenub} List Options`,
@@ -147,7 +147,7 @@ const listMessage = {
       break
       case 'premnsfwchat':
         if (m.isGroup) {
-        if (!isROwner) {
+        if (!isOwner) {
           global.dfail('rowner', m, conn)
           throw false
         }}
@@ -253,4 +253,4 @@ handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
 
-export default handler
+export default handler*/

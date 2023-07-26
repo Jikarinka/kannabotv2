@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import cheerio from 'cheerio'
 let handler = async (m, { conn, text }) => {
 if (!text) throw `*Masukan Judul Anime Yang Ingin Kamu Cari !*`
-let res = await fetch(global.API('https://api.jikan.moe', '/v3/search/anime', { q: text }))
+let res = await fetch(global.API('https://api.jikan.moe', '/v4/search/anime', { q: text }))
 
 if (!res.ok) throw 'Not Found'
 let json = await res.json()

@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
   let groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats && !chat.metadata?.read_only && !chat.metadata?.announce).map(v => v[0])
   let cc = text ? m : m.quoted ? await m.getQuotedObj() : false || m
   let teks = text ? text : cc.text
-  conn.reply(m.chat, `_Mengirim pesan broadcast ke ${groups.length} grup_`, m)
+  conn.reply(m.chat, `_Mengirim pesan broadcast ke 2${groups.length} grup_`, m)
   for (let id of groups) await conn.copyNForward(id, conn.cMod(m.chat, cc, /bc|broadcast/i.test(teks) ? `${htki} *BROADCAST* ${htka}\n` + teks : `${htki} *BROADCAST* ${htka}\n` + teks + '\n' + readMore + '\n\n' + botdate), true).catch(_ => _)
   m.reply('Selesai Broadcast All Group :)')
 }

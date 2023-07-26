@@ -9,7 +9,7 @@ let handler = async (m, { conn, text }) => {
   let katanimek = `
 📚 *Qᴜᴏᴛᴇ:* ${indo}\n\n▢ *ɴᴀᴍᴀ:* ${character} ▢\n▢ *ᴀɴɪᴍᴇ:* ${anime} ▢`
 
-  conn.sendHydrated(m.chat, `*${htki} ᴋᴀᴛᴀ ᴀɴɪᴍᴇ ${htka}*`, katanimek, null, null, [[null, null], [null, null], [null, null]], m)
+  conn.sendHydrated(m.chat, `*${htki} ᴋᴀᴛᴀ ᴀɴɪᴍᴇ ${htka}*`, katanimek, null, null, null,null, [null], m)
 
 }
 handler.help = ['katanime']

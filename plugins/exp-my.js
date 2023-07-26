@@ -2,6 +2,7 @@ import daily from './rpg-daily.js'
 import weekly from './rpg-weekly.js'
 import monthly from './rpg-monthly.js'
 import adventure from './rpg-adventure.js'
+import fetch from 'node-fetch'
 
 const inventory = {
   others: {
@@ -96,6 +97,10 @@ const inventory = {
   }
 }
 let handler = async (m, { conn }) => {
+  let _pp = './src/avatar_contact.png'
+  let users = db.data.users[m.sender]
+  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.users.jid : m.sender
+  let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/45499a463afbdce1b6649.jpg')
   let user = global.db.data.users[m.sender]
   const tools = Object.keys(inventory.tools).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${typeof inventory.tools[v] === 'object' ? inventory.tools[v][user[v]?.toString()] : `Level(s) ${user[v]}`}`).filter(v => v).join('\n').trim()
   const items = Object.keys(inventory.items).map(v => user[v] && `*${global.rpg.emoticon(v)}${v}:* ${user[v]}`).filter(v => v).join('\n│ ').trim()
@@ -117,7 +122,22 @@ let handler = async (m, { conn }) => {
 ▸ *ᴇxᴘɪʀᴇᴅ:*
 ${clockString(user.premiumTime - new Date() * 1)}`: ''}
 `.trim()
-  conn.sendButton(m.chat, `${htki} ᴜ s ᴇ ʀ s ${htka}`, caption, null, [`ɪɴᴠᴇɴᴛᴏʀʏ`, '.inv'],m)
+  // conn.sendButton(m.chat, `${htki} ᴜ s ᴇ ʀ s ${htka}`, caption, null, [`ɪɴᴠᴇɴᴛᴏʀʏ`, '.inv'],m)
+  await conn.reply(m.chat, caption, 0, {
+    contextInfo: {
+      mentionedJid: [m.sender],
+      externalAdReply: {
+        title: `${htki} ᴜ s ᴇ ʀ s ${htka}`,
+        containsAutoReply: false,
+        mediaType: 1,
+        mediaUrl: pp,
+        renderLargerThumbnail: true,
+        showAdAttribution: false,
+        thumbnail: await (await fetch(pp)).buffer(),
+        thumbnailUrl: pp,
+      },
+    },
+  });
 }
 handler.help = ['my']
 handler.tags = ['xp']
