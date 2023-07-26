@@ -1,0 +1,58 @@
+import schedule from 'node-schedule'
+
+export async function before(m) {
+    if (global.db.data.chats[m.chat].jadwalSholat) {
+        //jadwal sholat untuk wilayah Kediri
+        const jadwalSholat = [{
+            name: 'Sahur',
+            time: '03:00',
+            slogan: 'Jangan lewatkan waktu sahur, isi tenaga untuk menunaikan ibadah puasa'
+        }, {
+            name: 'Imsak',
+            time: '04:10',
+            slogan: 'Jangan lupa niat puasa, sudah saatnya untuk imsak'
+        }, {
+            name: 'Shubuh',
+            time: '04:20',
+            slogan: 'Waktunya imsak. Jangan lupa niat puasa hari ini.'
+        }, {
+            name: 'Dzuhur',
+            time: '11:40',
+            slogan: 'Waktunya sholat dzuhur.'
+        }, {
+            name: 'Ashr',
+            time: '14:55',
+            slogan: 'Waktunya sholat ashr.'
+        }, {
+            name: 'Maghrib',
+            time: '17:42',
+            slogan: 'Waktunya sholat maghrib.'
+        }, {
+            name: 'Isya',
+            time: '18:51',
+            slogan: 'Waktunya sholat isya.'
+        }];
+        conn.reply('6285334930628@s.whatsapp.net', 'Pengingat Sholat telah diaktifkan.', null)
+
+        //mendapatkan waktu saat ini
+        const currentTime = new Date();
+
+        //menambahkan 1 detik untuk menghindari sholat yang sudah terlewati
+        currentTime.setSeconds(currentTime.getSeconds() + 1);
+
+        //mendapatkan waktu untuk setiap sholat
+        const sholatTimes = jadwalSholat.map((sholat) => {
+            const sholatTime = new Date(currentTime.toLocaleDateString() + ' ' + sholat.time + ' GMT+0700');
+            return sholatTime;
+        });
+
+        //mengatur pengingat sholat
+        sholatTimes.forEach((sholatTime, index) => {
+            schedule.scheduleJob(sholatTime, function () {
+                conn.reply('6285334930628@s.whatsapp.net', 'Waktunya sholat ' + jadwalSholat[index].name + '\n' + jadwalSholat[index].slogan, null);
+            });
+        });
+    }
+}
+   
+ 
