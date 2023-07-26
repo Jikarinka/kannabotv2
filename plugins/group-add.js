@@ -36,11 +36,11 @@ let handler = async (m, { conn, text, participants }) => {
         const content = getBinaryNodeChild(user, 'add_request')
         const invite_code = content.attrs.code
         const invite_code_exp = content.attrs.expiration
-        let teks = `ᴍᴇɴɢᴜɴᴅᴀɴɢ 👤@${jid.split('@')[0]} ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ 📥ɪɴᴠɪᴛᴇ...`
+        let teks = `GAGAL ᴍᴇɴɢᴜɴᴅᴀɴɢ 👤@${jid.split('@')[0]} ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ 📥ɪɴᴠɪᴛᴇ...`
         m.reply(teks, null, {
             mentions: conn.parseMention(teks)
         })
-        await conn.sendGroupV4Invite(m.chat, jid, invite_code, invite_code_exp, await conn.getName(m.chat), 'Invitation to join my WhatsApp group', jpegThumbnail)
+        //await conn.sendGroupV4Invite(m.chat, jid, invite_code, invite_code_exp, await conn.getName(m.chat), 'Invitation to join my WhatsApp group', jpegThumbnail)
     }
 }
 handler.help = ['add', '+'].map(v => v + ' @user')

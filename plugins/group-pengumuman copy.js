@@ -1,3 +1,4 @@
+
 import { generateWAMessageFromContent } from '@adiwajshing/baileys'
 let handler = async (m, { conn, text, participants }) => {
   let users = participants.map(u => conn.decodeJid(u.id))
@@ -12,13 +13,11 @@ let handler = async (m, { conn, text, participants }) => {
       quoted: m,
       userJid: conn.user.id
     }),
-    text || q.text, conn.user.jid, { mentions: users.filter(id => !global.owner.some(([number]) => (number + '@s.whatsapp.net') == id)) }
+    text || q.text, conn.user.jid, { mentions: users }
   )
   await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id })
 }
-handler.help = ['pengumuman', 'announce', 'hidetag'].map(v => v + ' [teks]')
-handler.tags = ['group']
-handler.command = /^(pengumuman|announce|hiddentag|hidetag|semua|minna)$/
+handler.command = /^(all)$/
 
 handler.group = true
 handler.admin = true

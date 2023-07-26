@@ -1,33 +1,44 @@
-import fetch from 'node-fetch'
 import fs from 'fs'
-let handler = async (m, { conn, args, command }) => {
-let totalf = Object.values(global.plugins).filter(
-    (v) => v.help && v.tags
-  ).length;
- let url = gamanaufal[Math.floor(Math.random() * gamanaufal.length)]
- await conn.sendButton(m.chat, `Total Fitur Bot Saat ini: ${totalf}\n`,wm + '\n\n' + botdate, giflogo, [['M E N U','.menu']], m, {
-contextInfo: { externalAdReply :{
-                        mediaUrl: url,
-                        mediaType: 1,
-                        description: 'anu',
-                        title: bottime,
-                        renderLargerThumbnail: true,
-                        body: 'Total Cintaku Padamu',          previewType: 0,
-                        thumbnail: await (await fetch(url)).buffer(),
-                        sourceUrl: sig
-                      }}
-})
-}
+import fetch from 'node-fetch'
 
+let handler = async(m, { conn, text, usedPrefix: _p }) => {
+let list = `❏ 📮 Script Multi Device
+│• Script : 
+│↳ github.com/Jikarinka/kannabotv2
+│• Node_Modules:
+│↳ https://www.mediafire.com/file/jfu4yrvgd1x5zo5/Node-Module.tar.gz/file
+│• Base : 
+│↳ github.com/bochilgaming/games-wabot-md/
+┗──────────═┅═─────────
+📍 N o t e : 
+• Jangan lupa minta izin owner sebelum menggunakan scriptnya kak!
+• Jangan Lupa kasih star, follow & kasih credit
+• Dilarang menjual Script Ini!
+• Jika menemukan bug di script, harap lapor owner
+• Dilarang reupload sc, Hanya boleh fork
 
-handler.help = ['totalfitur']
-handler.tags = ['info']
-handler.command = ['totalfitur', 'tfitur']
+`.trim()// Tambah sendiri kalo mau
+let url = gamanaufal[Math.floor(Math.random() * gamanaufal.length)]
+
+ await conn.reply(m.chat, list, m, { render: true, thum: url, source: sgh, iklan: true, body: 'S C R I P T  K A N N A  B O T' })
+
+/*await conn.reply(m.chat, list, 0, {
+    contextInfo: { mentionedJid: [m.sender],
+    externalAdReply :{
+    mediaUrl: '',
+    mediaType: 3,
+    title: '— 「 ᴋ ᴀ ɴ ɴ ᴀ 」—', 
+    body: '— S C R I P T —',  
+    sourceUrl: 'github.com/Jikarinka/kannabotv2', 
+    thumbnail: fs.readFileSync('./bunga.gif')
+      }}
+     })*/
+}    
+handler.help = ['sc', 'script']
+handler.tags = ['']
+handler.command = /^sc|script$/i
+
 export default handler
-
-
-
-
 
 
 

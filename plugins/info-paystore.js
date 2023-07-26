@@ -30,15 +30,11 @@ let info = `
 ╰═┅═━––––––๑
 
 *⫹⫺ PAYMENT:*
-• *Pulsa:* [${ppulsa}]
-• *Dana:* [${pdana}]
+• *Dana:* ${pdana}
 
 –––––– *🐾 Kebijakan* ––––––
 🗣️: Kak, Kok harganya mahal banget?
-💬: Mau tawar menawar? boleh, silahkan chat owner aja
-
-🗣️: Scam ga nih kak?
-💬: Enggalah
+💬: Iya Kak Soalnya Bot Ini Menggunakan Hosting Panel Yg Cukup Mahal😊
 
 ▌│█║▌║▌║║▌║▌║█│▌
 `

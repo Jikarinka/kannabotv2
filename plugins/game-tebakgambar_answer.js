@@ -34,5 +34,5 @@ export async function before(m) {
 export const exp = 0
 
 const buttonTebakgambar = [
-    ['tebakgambar', '/tebakgambar']
+    ['Tebak Charakter', '/tebakanime']
 ]

@@ -9,11 +9,21 @@ let handler = async (m, { conn, args }) => {
     let me = groupMetadata.participants.find(user => areJidsSameUser(user.id, conn.user.id))
     if (!me) throw 'Aku tidak ada di grup itu :('
     if (!me.admin) throw 'Aku bukan admin T_T'
-    m.reply('https://chat.whatsapp.com/' + await conn.groupInviteCode(group))
+    conn.sendMessage(m.chat, {
+  text: `🪀 *${await conn.getName(m.sender)}* Ini Kak Linknya`,
+  templateButtons: [{
+    index: 1,
+    urlButton: {
+      displayText: `Salin Link Group`,
+      url: 'https://www.whatsapp.com/otp/copy/' + 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group)
+    }
+  }],
+  footer: wm
+})
 }
 handler.help = ['linkgroup']
 handler.tags = ['group']
 handler.command = /^link(gro?up)?$/i
-
+handler.admin = true
 
 export default handler

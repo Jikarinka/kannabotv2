@@ -7,7 +7,7 @@ let handler = async (m, { conn, command, args }) => {
 		ss = /f$/i.test(command) ? API('nrtm', '/api/ssweb', { delay: 1000, url, full: true }) : API('nrtm', '/api/ssweb', { delay: 1000, url }),
 		res = await fetch(ss)
 	if (!res.ok) throw await res.text()
-	conn.sendMessage(m.chat, { image: { url: ss }, caption: 🅽🅸🅷 🅺🅰🅺 }, { quoted: m })
+	conn.sendMessage(m.chat, { image: { url: ss }, caption: '🅽🅸🅷 🅺🅰🅺' }, { quoted: m })
 }
 handler.help = ['ss', 'ssf']
 handler.tags = ['tools']
