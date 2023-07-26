@@ -1,0 +1,27 @@
+// 🐰 MADE BY KORONEOFC (JANGAN DIHAPUS !!!)
+
+import xa from "xfarr-api"
+import fetch from "node-fetch"
+import uploadImage from "../lib/uploadImage.js"
+import uploadFile from "../lib/uploadFile.js"
+
+let handler = async (m, { conn, usedPrefix }) => {
+	
+let q = m.quoted ? m.quoted : m
+let mime = (q.msg || q).mimetype || ''
+if (!mime) throw "where the media?"
+
+let media = await q.download()
+let isMedia = /image\/(png|jpe?g)/.test(mime)
+let link = await (isMedia ? uploadImage : uploadImage)(media)
+
+let json = await (await xa.anime(link)).json()
+let hasil = await (await fetch(json.googleSearchResult)).buffer()
+
+m.reply(hasil)
+}
+handler.help = ['googlelens', 'glens'].map(v => v + ' <reply|caption')
+handler.tags = ['internet']
+handler.command = /^(g(oogle|g)lens)$/i
+
+export default handler
