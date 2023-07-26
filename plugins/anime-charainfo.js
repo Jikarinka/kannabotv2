@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import cheerio from 'cheerio'
 let handler = async(m, { conn, text }) => {
   if (!text) throw `Masukkan query!`
@@ -18,4 +18,4 @@ handler.tags = ['anime']
 handler.command = /^(chara|character)$/i
 //kyaa jangan biarkan wabot-aq terbengkalai sampai nurutomo kembali
 // Command - Re Edited -- TOXIC-DEVIL == || Character Type ||
-export default handler
+export default handler*/
