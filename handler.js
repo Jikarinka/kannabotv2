@@ -1,3 +1,4 @@
+import Func from './lib/function.js'
 import { smsg } from './lib/simple.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
@@ -309,10 +310,16 @@ export async function handler(chatUpdate) {
                     chat.delete = true
                 if (!('antiLink' in chat))
                     chat.antiLink = false
+                if (!('lastAnime' in chat))
+                    chat.lastAnime = false
+                if (!('updateAnimeInterval' in chat))
+                    chat.updateAnimeInterval = false
                 if (!('antiVirtex' in chat))
                     chat.antiVirtex = false
                 if (!('jam' in chat))
                     chat.jam = false
+                if (!('jadwaSholat' in chat))
+                    chat.jadwalSholat = true
                 if (!('sticker' in chat))
                     chat.sticker = false
                 if (!('viewonce' in chat))
@@ -338,10 +345,13 @@ export async function handler(chatUpdate) {
                     sDemote: '',
                     delete: true,
                     antiLink: false,
+                    lastAnime: false,
+                    updateAnimeInterval: false,
                     sticker: false,
                     viewonce: true,
                     antiToxic: true,
                     simi: false,
+                    jadwalSholat: true,
                     expired: 0,
                     nsfw: false,
                     premnsfw: false,
@@ -382,6 +392,7 @@ export async function handler(chatUpdate) {
         const isROwner = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isOwner = isROwner || m.fromMe
         const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const isDm = isOwner || global.dm.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isPrems = isROwner || db.data.users[m.sender].premiumTime > 0
 
         if (opts['queque'] && m.text && !(isMods || isPrems)) {
@@ -468,9 +479,11 @@ export async function handler(chatUpdate) {
                     isAdmin,
                     isBotAdmin,
                     isPrems,
+                    isDm,
                     chatUpdate,
                     __dirname: ___dirname,
-                    __filename
+                    __filename,
+                    Func
                 }))
                     continue
             }
@@ -520,6 +533,10 @@ export async function handler(chatUpdate) {
                 }
                 if (plugin.mods && !isMods) { // Moderator
                     fail('mods', m, this)
+                    continue
+                }
+                if (plugin.dm && !isDm) { // Digital Marketing
+                    fail('dm', m, this)
                     continue
                 }
                 if (plugin.premium && !isPrems) { // Premium
@@ -577,9 +594,11 @@ export async function handler(chatUpdate) {
                     isAdmin,
                     isBotAdmin,
                     isPrems,
+                    isDm,
                     chatUpdate,
                     __dirname: ___dirname,
-                    __filename
+                    __filename,
+                    Func
                 }
                 try {
                     await plugin.call(this, m, extra)
@@ -770,6 +789,7 @@ global.dfail = (type, m, conn) => {
         rowner: '*ᴏɴʟʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴅᴇᴠᴇʟᴏᴘᴇʀ ʙᴏᴛ',
         owner: '*ᴏɴʟʏ ᴏᴡɴᴇʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴏᴡɴᴇʀ ʙᴏᴛ',
         mods: '*ᴏɴʟʏ ᴍᴏᴅᴇʀᴀᴛᴏʀ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴍᴏᴅᴇʀᴀᴛᴏʀ ʙᴏᴛ',
+        dm: '*ᴏɴʟʏ ᴍᴇᴍʙᴇʀ ᴅᴍ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴀɴɢɢᴏᴛᴀ ᴅᴍ',
         premium: '*ᴏɴʟʏ ᴘʀᴇᴍɪᴜᴍ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ᴜɴᴛᴜᴋ ᴘʀᴇᴍɪᴜᴍ ᴜsᴇʀ',
         group: '*ɢʀᴏᴜᴘ ᴄʜᴀᴛ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪᴘᴀᴋᴀɪ ᴅɪᴅᴀʟᴀᴍ ɢʀᴏᴜᴘ',
         private: '*ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪᴘᴀᴋᴀɪ ᴅɪᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ',
@@ -777,7 +797,7 @@ global.dfail = (type, m, conn) => {
         botAdmin: '*ᴏɴʟʏ ʙᴏᴛ ᴀᴅᴍɪɴ* • ᴄᴏᴍᴍᴀɴᴅ ɪɴɪ ʜᴀɴʏᴀ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ ᴋᴇᴛɪᴋᴀ ʙᴏᴛ ᴍᴇɴᴊᴀᴅɪ ᴀᴅᴍɪɴ',
         restrict: '*ʀᴇsᴛʀɪᴄᴛ* • ʀᴇsᴛʀɪᴄᴛ ʙᴇʟᴜᴍ ᴅɪɴʏᴀʟᴀᴋᴀɴ ᴅɪᴄʜᴀᴛ ɪɴɪ',
     }[type]
-    if (msg) return conn.reply(m.chat, msg, m, { contextInfo: { externalAdReply: {title: global.wm, body: '404 Access denied ✘', sourceUrl: global.snh, thumbnail: fs.readFileSync('./thumbnail.jpg') }}})
+    if (msg) return conn.reply(m.chat, msg, m, { contextInfo: { externalAdReply: {title: global.wm, body: '404 Access denied ✘', sourceUrl: global.sgh, thumbnail: fs.readFileSync('./thumbnail.jpg') }}})
     
     let msgg = {
     	unreg: 'ʜᴀʟʟᴏ ᴋᴀᴋ ! 👋\nᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴅᴀғᴛᴀʀ ᴋᴇ ᴅᴀᴛᴀʙᴀsᴇ ʙᴏᴛ ᴅᴜʟᴜ sᴇʙᴇʟᴜᴍ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ғɪᴛᴜʀ ɪɴɪ\n\n➞ ᴋʟɪᴄᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀғᴛᴀʀ ᴋᴇ ᴅᴀᴛᴀʙᴀsᴇ ʙᴏᴛ'

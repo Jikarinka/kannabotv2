@@ -5,6 +5,7 @@ import { createRequire } from "module"; // Bring in the ability to create the 'r
 import path, { join } from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
 import { platform } from 'process'
+import moment from 'moment-timezone'
 global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') { return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString() }; global.__dirname = function dirname(pathURL) { return path.dirname(global.__filename(pathURL, true)) }; global.__require = function require(dir = import.meta.url) { return createRequire(dir) }
 
 import * as ws from 'ws';
@@ -23,7 +24,8 @@ import syntaxerror from 'syntax-error';
 import { tmpdir } from 'os';
 import { format } from 'util';
 import { makeWASocket, protoType, serialize } from './lib/simple.js';
-import { Low, JSONFile } from 'lowdb';
+import { Low } from 'lowdb';
+import { JSONFile } from "lowdb/node"
 import pino from 'pino';
 import {
   mongoDB,
@@ -92,9 +94,34 @@ const { state, saveCreds } = await useMultiFileAuthState(global.authFile)
 const connectionOptions = {
   printQRInTerminal: true,
   auth: state,
-  logger: pino({ level: 'silent' })
-}
+  logger: pino({ level: 'silent' }),
+  getMessage: async (key) => (
+      store.loadMessage((key.remoteJid), key.id) ||
+      store.loadMessage((key.id)) || {}
+      ).message || { conversation: 'Please send messages again' },
+  patchMessageBeforeSending: (message) => {
+      const requiresPatch = !!(
+          message.buttonsMessage ||
+          message.templateMessage ||
+          message.listMessage
+      );
+      if (requiresPatch) {
+          message = {
+              viewOnceMessage: {
+                  message: {
+                      messageContextInfo: {
+                          deviceListMetadataVersion: 2,
+                          deviceListMetadata: {},
+                      },
+                      ...message,
+                  },
+              },
+          };
+      }
 
+      return message;
+  },
+}
 global.conn = makeWASocket(connectionOptions)
 conn.isInit = false
 
@@ -121,6 +148,58 @@ function clearTmp() {
   })
 }
 
+setInterval(async () => {
+        const time = moment.tz('Asia/Jakarta')
+            .format('HH:mm:ss')
+        let wkt = 'Waktunya '
+        let wktu = 'Waktunya Sholat '
+        let stb = '120363042574686133@g.us'
+
+        /*if (time === '03:00:00') {
+            let name = 'Sahur\n'
+            let slogan = 'Jangan lewatkan waktu sahur, isi tenaga untuk menunaikan ibadah puasa'
+            conn.reply(stb, wkt + name + slogan)
+            //conn.reply(owner[0] + "@s.whatsapp.net", wktu + name + slogan)
+        }
+        if (time === '04:10:00') {
+            let name = 'Imsak\n'
+            let slogan = 'Jangan lupa niat puasa, sudah saatnya untuk imsak'
+            conn.reply(stb, wkt + name + slogan)
+            //conn.reply(owner[0] + "@s.whatsapp.net", wktu + name + slogan)
+        }*/
+        if (time === '04:20:00') {
+            let name = 'Shubuh\n'
+            let slogan = 'Bangunlah wahai para pemuda, kejarlah kebahagiaanmu dengan sholat subuh'
+            conn.reply(stb, wktu + name + slogan)
+            //conn.reply(owner[0] + "@s.whatsapp.net", wktu + name + slogan)
+        }
+        if (time === '11:40:00') {
+            let name = 'Dzuhur\n'
+            let slogan = 'Jangan biarkan sibukmu melupakan dzuhurmu'
+            conn.reply(stb, wktu + name + slogan)
+            //conn.reply(owner[0] + "@s.whatsapp.net", wktu + name + slogan)
+        }
+        if (time === '14:55:00') {
+            let name = 'Ashr\n'
+            let slogan = 'Menjaga keimananmu dengan sholat ashr'
+            conn.reply(stb, wktu + name + slogan)
+            //conn.reply(owner[0] + "@s.whatsapp.net", wktu + name + slogan)
+        }
+        if (time === '17:42:00') {
+            let name = 'Terdengar suara Adzan Maghrib\n'
+            let slogan = 'Saatnya Sholat Maghrib'
+            conn.reply(stb, name + slogan)
+            //conn.reply(owner[0] + "@s.whatsapp.net", wktu + name + slogan)
+        }
+        if (time === '18:51:00') {
+            let name = 'Isya\n'
+            let slogan = 'Jangan lewatkan kesempatan untuk mendapatkan pahala berlipat-lipat dengan menunaikan shalat Isya dan Tarawih, semoga kita selalu diberikan kekuatan dan kemampuan untuk beribadah dengan ikhlas di bulan suci Ramadhan'
+            conn.reply(stb, wktu + name + slogan)
+            //conn.reply(owner[0] + "@s.whatsapp.net", wktu + name + slogan)
+        }                                          
+    }, 1000)
+    
+
 async function connectionUpdate(update) {
   const { connection, lastDisconnect, isNewLogin } = update
   if (isNewLogin) conn.isInit = true
@@ -137,6 +216,11 @@ async function connectionUpdate(update) {
 
 process.on('uncaughtException', console.error)
 // let strQuot = /(["'])(?:(?=(\\?))\2.)*?\1/
+
+/*if (code === 'SIGKILL' || code === 'SIGABRT' || code === 'SIGTRAP') {
+  start.apply(this, arguments)
+    conn.reply('6285334930628@s.whatsapp.net', 'SIGKILL\nMemulai Ulang Server Server...')
+}*/
 
 let isInit = true, handler
 global.reloadHandler = async function (restatConn) {
