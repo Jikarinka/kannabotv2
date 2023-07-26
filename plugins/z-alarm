@@ -1,0 +1,22 @@
+import cron from 'node-cron'
+let handler = m => m
+handler.all = async function (m) {
+   let chat = global.db.data.chats[m.chat]
+
+    cron.schedule('30 16 * * 0-5', () => {
+/*
+angka 12 sebagai menit
+angka 23 sebagai jam
+angka 5 sebagai hari(jumat)
+id dm 120363042833583129@g.us
+*/
+
+        conn.reply('6285334930628@s.whatsapp.net', 'Absen Cuy Nih Link Nya\nhttps://docs.google.com/forms/d/e/1FAIpQLSef55MDECSWb7-9CxYDrHxKkUvPLI8XcP2qf6Ne75Tna-NGcg/viewform', null)
+    }, { 
+        scheduled: true,
+        timezone: "Asia/jakarta"
+    })
+  
+}
+
+export default handler

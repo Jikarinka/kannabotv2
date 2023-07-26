@@ -1,0 +1,104 @@
+import request from 'request'
+import cheerio from 'cheerio'
+import { tiktokdl, tiktokdlv2, tiktokdlv3 } from '@bochilteam/scraper'
+import fetch from 'node-fetch'
+import fs from 'fs'
+
+function tiktokna2(link){
+	return new Promise((resolve,reject) => {
+	const jar = request.jar()
+	let linkna = encodeURIComponent(link)
+	const heder = {
+				'accept-language': 'en-US,en;q=0.9',
+				'Origin': 'https://tiktokdownload.online',
+				'referer': 'https://tiktokdownload.online/id',
+				//cookie: `ad_client=ssstik; _ga=GA1.2.1188226911.1665070648; _gid=GA1.2.1219908091.1665070648; __gads=ID=19b22dc9097ff4ec-22d4cfb2e3d600e2:T=1665070665:RT=1665070665:S=ALNI_MYttQauUaJr-d5XsB0Iq69aYolmBA; __gpi=UID=00000a1dc9a0f1a6:T=1665070665:RT=1665070665:S=ALNI_Mb3wgtxxZxVHKXLC0aiSmAWzEQrXA; _gat_UA-3524196-9=1`,
+				/// "X-Requested-With": "XMLHttpRequest",
+				 accept: `text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9`,
+				'sec-ch-ua': '"Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"',
+				"User-Agent": 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.0.0.585 Mobile Safari/534.11+',
+				//'Connection': 'keep-alive'
+				'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+				'hx-current-url': 'https://tiktokdownload.online/id',
+		'hx-request': true,
+		'hx-target': `target`,
+		'hx-trigger': `_gcaptcha_pt`,
+				
+			}
+			
+	request({
+		url: 'https://tiktokdownload.online/id',
+		method: 'GET',
+		jar: jar,
+		headers: heder,
+	}, async(err, res) => {
+		if(err) return reject(err)
+		//console.log(res.body)
+	let token = /tt:'(.*?)'/.exec(res.body)[1]
+	request({
+		url: 'https://tiktokdownload.online/abc?url=dl',
+		method: 'POST',
+		jar: jar,
+		headers: {
+			...heder,
+		'hx-current-url': 'https://tiktokdownload.online/id',
+		'hx-request': true,
+		'hx-target': `target`,
+		'hx-trigger': `_gcaptcha_pt`,
+		//'accept-encoding': 'gzip, deflate, br'
+		},
+		body: `id=${linkna}&locale=id&tt=${token}`
+	}, async(err, resp) => {
+		if(err) return reject(err)
+		let $ = cheerio.load(resp.body)
+		let data = $(`div[class="result_overlay"]`)
+		let title = data.find(`h2`).text()
+		let caption = data.find(`.maintext`).text()
+		let nowm = data.find(`a[class="pure-button pure-button-primary is-center u-bl dl-button download_link without_watermark vignette_active"]`).attr(`href`)
+		let nowm2 = data.find(`a[class="pure-button pure-button-primary is-center u-bl dl-button buy_ios_app"]`).attr(`href`)
+		let mp3 = data.find(`a[class="pure-button pure-button-primary is-center u-bl dl-button download_link music vignette_active"]`).attr(`href`)
+		console.log(mp3)
+		resolve({title, caption, nowm, nowm2, mp3})
+		
+	})
+	
+
+		
+	})
+			
+})
+}
+
+
+
+let handler = async (m, { Func, conn, args, usedPrefix, command }) => {
+    if (!args[0]) throw Func.example(usedPrefix, m, "Balas Pesan Ini menggunakan LINK TIKTOK\nContohnya: https://vt.tiktok.com/ZSRTCxBsv/")
+    
+    let res = await fetch('https://api.waifu.pics/sfw/waifu')
+    if (!res.ok) throw await res.text()
+    let json = await res.json()
+    if (!json.url) throw 'Error!'
+    
+    await conn.reply(m.chat, "ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴍᴇᴅɪᴀ ꜰʀᴏᴍ ᴛɪᴋᴛᴏᴋ", m, { render: true, thum: 'https://telegra.ph/file/3395ab75ac59384d04c76.jpg' })
+    
+    
+    const result = await tiktokna2(args[0])
+		.catch(async _ => await tiktokdl(args[0]))
+        .catch(async _ => await tiktokdlv2(args[0]))
+        .catch(async _ => await tiktokdlv3(args[0]))
+		let nickname = result?.title || result?.author?.nickname
+		let description = result?.caption||result?.description
+    const url = result?.nowm || result?.nowm2 || result?.video?.no_watermark2 || result?.video?.no_watermark || 'https://tikcdn.net' + result?.video?.no_watermark_raw || result?.video?.no_watermark_hd
+    if (!url) throw 'Can\'t download video!'
+     conn.sendHydrated(m.chat, `${htki} ᴛɪᴋᴛᴏᴋ ɴᴏ ᴡᴍ ${htka}`, `➔ ɴɪᴄᴋɴᴀᴍᴇ${nickname}${description ? `\n➔ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ:\n${description}` : ''}`, await (await fetch(url)).buffer(),
+        url, '🌎 s ᴏ ᴜ ʀ ᴄ ᴇ', null, null, [
+        ['ᴅᴏɴᴀꜱɪ', `.donasi`],
+        ['ᴀᴜᴅɪᴏ', `.tiktokaudio ${args}`],
+        [null, null]], m).then(_=> conn.reply(m.chat, Func.example(usedPrefix, 'tiktok1', "Balas Pesan Ini menggunakan LINK TIKTOK\nContohnya: https://vt.tiktok.com/ZSRTCxBsv/")))
+}
+handler.help = ['tiktok', 'tiktok', 'tiktokdl'].map(v => v + ' <url>')
+handler.tags = ['downloader']
+//handler.command = /^(tik(tok)?(tok)?(dl)?)$/i
+handler.command = /^(tiktok1)/i
+
+export default handler

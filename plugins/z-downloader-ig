@@ -1,0 +1,43 @@
+import { instagramdl, instagramdlv2, instagramdlv3, instagramdlv4 } from '@bochilteam/scraper'
+import instagramGetUrl from 'instagram-url-direct'
+import fetch from 'node-fetch'
+import fs from 'fs'
+
+let handler = async (m, { Func, conn, args, usedPrefix, command }) => {
+    if (!args[0]) throw Func.example(usedPrefix, m, "Balas Pesan Ini menggunakan LINK Instagram")
+    
+    
+    await conn.reply(m.chat, `ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴍᴇᴅɪᴀ ꜰʀᴏᴍ ɪɴꜱᴛᴀɢʀᴀᴍ`, 0, {
+    contextInfo: {
+      mentionedJid: [m.sender],
+      externalAdReply: {
+        mediaUrl: '',
+        mediaType: 2,
+        description: sgc,
+        title: global.wm,
+        body: 'Tunggu Sebentar Ya kak', //`${fileSizeH}`,
+        sourceUrl: sig,
+        thumbnail: fs.readFileSync('./new-thumbnail.jpg')
+      }
+    }
+  })
+    
+     const results = await instagramdl(args[0])   
+        .catch(async _ => await instagramdlv2(args[0]))
+        .catch(async _ => await instagramdlv3(args[0]))
+        .catch(async _ => await instagramdlv4(args[0]))
+        .catch(async _ => await instagramGetUrl(args[0]))
+    for (const { url } of results)
+    
+        await conn.sendHydrated(m.chat, `${htki} ɪɴꜱᴛᴀɢʀᴀᴍ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ${htka}`, `➔ ɴɪᴄᴋɴᴀᴍᴇ ${conn.getName(m.sender)}`, await (await fetch(url)).buffer(),
+        url, '🌎 s ᴏ ᴜ ʀ ᴄ ᴇ', null, null, [
+        ['ᴅᴏɴᴀꜱɪ', `.donasi`],
+        ['ᴍᴇɴᴜ', `.menu`],
+        [null, null]], m)
+}
+handler.help = ['ig'].map(v => v + ' <url>')
+handler.tags = ['downloader']
+
+handler.command = /^(ig(dl)?)$/i
+
+export default handler
